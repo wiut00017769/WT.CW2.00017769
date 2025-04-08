@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const flashcardController = require('../../controllers/flashcards');
-
-router.get('/', flashcardController.getAll);
-//route to display create flashcard form
+const flashcardsController = require('../../controllers/flashcards');
+router.get('/', (req, res) => {
+  flashcardsController.getAll(req, res);
+});
 router.get('/create', (req, res) => {
   res.render('flashcards/create_update', { title: 'Create Flashcard' });
 });
-
-router.get('/update/:id', flashcardController.getById);
-
+router.get('/update/:id', (req, res) => {
+  flashcardsController.getById(req, res);
+});
 module.exports = router;

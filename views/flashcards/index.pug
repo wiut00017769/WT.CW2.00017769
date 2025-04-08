@@ -1,22 +1,24 @@
 extends ../head.pug
-
 block content
   .container.mt-4
     h1 Flashcards List
     a.btn.btn-primary.mb-3(href="/flashcards/create") Create New Flashcard
-    table.table.table-striped
-      thead
-        tr
-          th ID
-          th Term
-          th Definition
-          th Actions
-      tbody
-        each flashcard in flashcards
+    if flashcards.length
+      table.table.table-striped
+        thead
           tr
-            td= flashcard.id
-            td= flashcard.term
-            td= flashcard.definition
-            td
-              a.btn.btn-warning.btn-sm(href=`/flashcards/update/${flashcard.id}`) Update
-              a.btn.btn-danger.btn-sm(href=`/api/flashcards/delete/${flashcard.id}`) Delete
+            th ID
+            th Term
+            th Definition
+            th Actions
+        tbody
+          each card in flashcards
+            tr
+              td= card.id
+              td= card.term
+              td= card.definition
+              td
+                a.btn.btn-warning.btn-sm(href=`/flashcards/update/${card.id}`) Update
+                a.btn.btn-danger.btn-sm(href=`/api/flashcards/delete/${card.id}`) Delete
+    else
+      p No flashcards available.

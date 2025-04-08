@@ -1,11 +1,22 @@
 doctype html
 html
   head
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     title #{title}
-    link(rel='stylesheet', href='/styles/style.css')
-    script(src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js')
-    script(src='/javascripts/scripts.js')
+    link(rel="stylesheet", href="/styles/style.css")
+    script(src="/javascripts/scripts.js")
   body
-    block content
+    header.navbar
+      .navbar-container
+        a.logo(href="/") Language Learning App
+        nav
+          ul.nav-list
+            li.nav-item: a(href="/") Home
+            li.nav-item: a(href="/flashcards") Flashcards
+            li.nav-item: a(href="/user/register") Register
+            li.nav-item: a(href="/about") About
+    main
+      block content
+    footer
+      p This web application was created to fulfill the requirements of the Web Technology module.
