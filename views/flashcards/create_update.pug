@@ -1,0 +1,17 @@
+extends ../head.pug
+
+block content
+  .container.mt-4
+    - var formAction = flashcard && flashcard.id ? `/api/flashcards/update/${flashcard.id}` : '/api/flashcards/create'
+    - var formTitle = flashcard && flashcard.id ? 'Update Flashcard' : 'Create Flashcard'
+    h1= formTitle
+    form(method="post", action=formAction)
+      if flashcard && flashcard.id
+        input(type="hidden", name="id", value=flashcard.id)
+      .form-group
+        label(for="term") Term
+        input.form-control(type="text", name="term", id="term", value=flashcard ? flashcard.term : '', placeholder="Enter term")
+      .form-group
+        label(for="definition") Definition
+        input.form-control(type="text", name="definition", id="definition", value=flashcard ? flashcard.definition : '', placeholder="Enter definition")
+      button.btn.btn-primary(type="submit") Submit
