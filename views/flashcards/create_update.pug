@@ -2,9 +2,16 @@ extends ../head.pug
 
 block content
   .container.mt-4
-    - var formAction = flashcard && flashcard.id ? `/api/flashcards/update/${flashcard.id}` : '/api/flashcards/create'
-    - var formTitle = flashcard && flashcard.id ? 'Update Flashcard' : 'Create Flashcard'
-    h1= formTitle
+    - var formAction = (flashcard && flashcard.id) ? `/api/flashcards/update/${flashcard.id}` : '/api/flashcards/create'
+    - var formTitle = (flashcard && flashcard.id) ? 'Update Flashcard' : 'Create Flashcard'
+    h1.mb-4= formTitle
+
+    if errors
+      .alert.alert-danger
+        ul
+          each err in errors
+            li= err.msg
+
     form(method="post", action=formAction)
       if flashcard && flashcard.id
         input(type="hidden", name="id", value=flashcard.id)
