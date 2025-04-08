@@ -1,0 +1,14 @@
+extends head.pug
+
+block content
+  .container
+    h1 User Registration Form
+    form(action="/api/user/register" method="POST")
+      div
+        label(for="email") Email:
+        input(type="text" id="email" name="email" required)
+      div
+        label(for="password") Password:
+        input(type="password" id="password" name="password" required)
+      div#error
+      button(type="submit") Register

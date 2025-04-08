@@ -17,5 +17,5 @@ Node.js has a set of build in modules/dependencies
 
 
 Link to the public repo with web application source code on github and link to the hosted (Glitch or any other platform) application:
-Github repository link: https://github.com/00017769/WT.CW2.00017769.git
+Github repository link: 
 Glitch: 
