@@ -21,6 +21,12 @@ app.get('/user/register', (req, res) => {
     res.render('user', { title: 'User Registration' });//registration page route
 });
 
+const flashcardsWebRoutes = require('./routes/web/flashcards');
+app.use('/flashcards', flashcardsWebRoutes);//flashcards web routes 
+
+const flashcardsApiRoutes = require('./routes/api/flashcards');
+app.use('/api/flashcards', flashcardsApiRoutes);//flashcards api routes
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
